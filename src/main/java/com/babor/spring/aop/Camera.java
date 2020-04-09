@@ -3,15 +3,17 @@ package com.babor.spring.aop;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Camera implements PhotoSnapper, ICamera {
-    public Camera() {
-        System.out.println("form camera constructor");
+public class Camera {
+
+    public void snap() {
+        System.out.println("SNAP");
     }
 
-    @Override
-    public void snap() throws Exception {
-        System.out.println("SNAP");
+    public void snap(int zoom) {
+        System.out.println("snap with zoom : " + zoom);
+    }
 
-        throw new Exception("New Exception throw bySelf");
+    public void snap(String name) {
+        System.out.println("Carema Name : " + name);
     }
 }
