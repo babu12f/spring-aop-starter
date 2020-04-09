@@ -12,7 +12,10 @@ public class App
     public static void main( String[] args ) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        Camera camera = (Camera) context.getBean("camera");
+        ICamera camera = (ICamera) context.getBean("camera");
+
+        System.out.println("We Get an object of : " + camera.getClass());
+        System.out.println("camera is an instance of ICamera :" + (camera instanceof ICamera));
 
         try {
             camera.snap();
