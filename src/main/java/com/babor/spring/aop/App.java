@@ -9,14 +9,9 @@ public class App {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        Camera camera = (Camera) context.getBean("camera");
-        Car car = (Car) context.getBean("car");
+        ICamera camera = (ICamera) context.getBean("camera");
 
         camera.snap();
-        camera.snap(213);
-        camera.snap("bangladesh");
-
-        car.start();
 
         context.close();
     }
