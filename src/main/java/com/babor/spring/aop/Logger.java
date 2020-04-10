@@ -9,7 +9,34 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-    @Pointcut("within(@org.springframework.stereotype.Component com.babor.spring..*)")
+//    @Pointcut("within(@Deprecated com.babor.spring..*)")
+//    public void withinPointCut() {
+//    }
+//
+//    @Before("withinPointCut()")
+//    public void withinBefore() {
+//        System.out.println("********** BEFORE ADVICE ************");
+//    }
+
+//    @Pointcut("@target(org.springframework.stereotype.Component)")
+//    public void withinPointCut() {
+//    }
+//
+//    @Before("withinPointCut()")
+//    public void withinBefore() {
+//        System.out.println("********** BEFORE ADVICE ************");
+//    }
+
+//    @Pointcut("@annotation(Deprecated)")
+//    public void withinPointCut() {
+//    }
+//
+//    @Before("withinPointCut()")
+//    public void withinBefore() {
+//        System.out.println("********** BEFORE ADVICE ************");
+//    }
+
+    @Pointcut("@args(org.springframework.stereotype.Component)")
     public void withinPointCut() {
     }
 
