@@ -10,16 +10,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-    @Pointcut("target(com.babor.spring.aop.Camera)")
-    public void withinPointCut() {
+    @Pointcut("args(exposure, aperture)")
+    public void withinPointCut(int exposure, double aperture) {
     }
 
-    @Before("withinPointCut()")
-    public void withinBefore(JoinPoint jp) {
+    @Before("withinPointCut(exposure, aperture)")
+    public void withinBefore(int exposure, double aperture) {
         System.out.println("********** BEFORE ADVICE ************");
 
-        for (Object arg : jp.getArgs()) {
-            System.out.println("Args : " + arg);
-        }
+        System.out.println("Arg : exposure " + exposure);
+        System.out.println("Arg : aperture " + aperture);
     }
 }
