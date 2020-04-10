@@ -1,5 +1,6 @@
 package com.babor.spring.aop;
 
+import com.babor.spring.accessories.Lens;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -11,7 +12,11 @@ public class App {
 
         ICamera camera = (ICamera) context.getBean("camera");
 
+        Lens lens = (Lens) context.getBean("lens");
+
         camera.snap();
+
+        lens.zoom(333);
 
         context.close();
     }

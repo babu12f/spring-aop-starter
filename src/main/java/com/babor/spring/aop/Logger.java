@@ -9,30 +9,12 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-    @Pointcut("within(com.babor.spring.aop.*)")
+    @Pointcut("within(@org.springframework.stereotype.Component com.babor.spring..*)")
     public void withinPointCut() {
-    }
-
-    @Pointcut("target(com.babor.spring.aop.Camera)")
-    public void targetPointCut() {
-    }
-
-    @Pointcut("this(com.babor.spring.aop.ICamera)")
-    public void thisPointCut() {
     }
 
     @Before("withinPointCut()")
     public void withinBefore() {
-        System.out.println("********** :WITHIN: BEFORE ADVICE ************");
-    }
-
-    @Before("targetPointCut()")
-    public void targetBefore() {
-        System.out.println("********** :TARGET: BEFORE ADVICE ************");
-    }
-
-    @Before("thisPointCut()")
-    public void thisBefore() {
-        System.out.println("********** :THIS: BEFORE ADVICE ************");
+        System.out.println("********** BEFORE ADVICE ************");
     }
 }
