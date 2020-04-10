@@ -1,6 +1,5 @@
 package com.babor.spring.aop;
 
-import com.babor.spring.accessories.Lens;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
@@ -10,18 +9,14 @@ public class App {
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("beans.xml");
 
-        ICamera camera = (ICamera) context.getBean("camera");
-        Car car = (Car) context.getBean("car");
+        IBlender blender = (IBlender) context.getBean("blender");
+        IFan fan = (IFan) context.getBean("fan");
 
-        camera.snap();
-        camera.snap(500);
-        camera.snap(1.8);
-        camera.snap(500, 1.8);
-        camera.snapNighttime();
-        camera.snapCar(car);
+        ((IMachine)blender).start();
+        blender.blend();
 
-        car.start();
-        car.start(144, 3.99);
+        ((IMachine)fan).start();
+        fan.activate(5);
 
         context.close();
     }
