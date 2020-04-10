@@ -9,8 +9,14 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-//    @Pointcut("bean(lens)")
-    @Pointcut("bean(*e*)")
+//    @Pointcut("args()")
+//    @Pointcut("args(int)")
+//    @Pointcut("args(int, double)")
+//    @Pointcut("args(int, *)")
+//    @Pointcut("args(int, ..)")
+//    @Pointcut("args(com.babor.spring.aop.Car)")
+//    @Pointcut("args(.., double)")
+    @Pointcut("args(.., Double)")
     public void withinPointCut() {
     }
 
